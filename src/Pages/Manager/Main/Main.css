@@ -1,0 +1,12 @@
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.link{
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(3, 165, 165);
+}

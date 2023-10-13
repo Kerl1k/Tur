@@ -1,0 +1,37 @@
+{
+  "tour": [
+    {
+      "id": 1697041853176,
+      "airplane": "S77",
+      "hotel": "Завидово",
+      "country": "Россия",
+      "city": "Конаково",
+      "price": 5000,
+      "about": "Отель у реки и рядом с природой",
+      "img": "https://xn-----7kcbkajecynpbmo5afibe9bya4eyh.xn--p1ai/wp-content/uploads/sites/8/2020/10/see_1.jpg"
+    }
+  ],
+  "airplane": [
+    {
+      "id": 1697034892822,
+      "name": "Победа",
+      "city": [
+        {
+          "id": 1697034843653,
+          "city": "Конаково",
+          "price": 1500
+        },
+        {
+          "id": 1697034875663,
+          "city": "Москва",
+          "price": 500
+        },
+        {
+          "id": 1697034880563,
+          "city": "Питер",
+          "price": 5000
+        }
+      ]
+    }
+  ]
+}

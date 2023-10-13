@@ -1,0 +1,32 @@
+*{
+    font-size: 25px;
+}
+
+.addModal{
+    min-height: 500px;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.addAirplane {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+.addAirplane{
+    min-height: 300px;
+    display: block;
+}
+.inputAirplane {
+    margin: 15px;
+    border: 2px solid aqua;
+    height: 30px;
+    width: 200px;
+}
+
+.list_button{
+    display: flex;
+    justify-content: center;
+}

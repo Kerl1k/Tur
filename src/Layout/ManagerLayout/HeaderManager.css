@@ -1,0 +1,14 @@
+.HeaderManager{
+    background-color:aqua;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header_button{
+    color:black;
+    text-decoration:none;
+    font-size: 25px;
+}

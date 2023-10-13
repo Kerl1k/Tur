@@ -1,0 +1,49 @@
+.inputAirplane{
+    margin: 15px;
+    border: 2px solid aqua;
+    height: 30px;
+    width: 200px;
+}
+
+.airplane_add_button{
+    display: flex;
+    justify-content: center;
+}
+
+.airplane_list{
+display: flex;
+}
+
+.airplane_list_name{
+    border: 2px solid aqua;
+    border-radius: 15px;
+    width: 250px;
+    height: 350px;
+    margin: 15px;
+    padding: 15px;
+}
+
+.airplaneName{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.cityList{
+    margin: 5px;
+    height: 60%;
+    width: 100%;
+}
+
+.city{
+    display: flex;
+    margin: 15px 0px;
+    justify-content: space-between;
+}
+.airplaneButtonList{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    padding: 0; 
+}

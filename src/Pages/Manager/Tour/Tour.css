@@ -1,0 +1,59 @@
+.tourAddButton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tourList{
+    width: 100%;
+
+}
+
+.tourBlock{
+    border: 2px solid aqua;
+    width: 850px;
+    height: 150px;
+    display: flex;
+    margin: 15px;
+    padding: 5px;
+}
+
+.imgBlock{
+    height: 100%;
+    width: 40%;
+    padding: 1px;
+    border: 0.5px solid aqua;
+    margin: 0px 10px;
+}
+
+.airplaneBlock{
+    font-size: 20px;
+    color: gray;
+}
+
+.aboutBlock{
+    color:gray;
+}
+
+.priceBlock{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+.buttonBlock{
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.buttonBlock:hover{
+    padding: 3px;
+    cursor:pointer;
+}
+
+.buttonlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
