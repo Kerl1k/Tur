@@ -14,3 +14,14 @@
 .serchInput{
     border: 1px solid aqua;
 }
+
+.lineBlock{
+    border-left: 1px solid gray;
+    height: 100%;
+}
+
+.textPrice{
+    font-size: 20px;
+    color:grey;
+    text-align: center;
+}

@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { ITours } from "../TypeScripts/ITours";
 import { IAirplane } from "../TypeScripts/IAirplane";
+import { IReservation } from "../TypeScripts/IReservation";
 
 export const tourApi = createApi({
   reducerPath: "tourAPI",
@@ -75,6 +76,28 @@ export const airplaneApi = createApi({
         body: airplane,
       }),
       invalidatesTags: ["Airplane"],
+    }),
+  }),
+});
+
+export const reservationApi = createApi({
+  reducerPath: "reservationApi",
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
+  tagTypes: ["Reservation"],
+  endpoints: (build) => ({
+    fetchAllReservation: build.query<IReservation[], string>({
+      query: () => ({
+        url: "reservation",
+      }),
+      providesTags: (result) => ["Reservation"],
+    }),
+    addReservation: build.mutation<IReservation, IReservation>({
+      query: (reservation) => ({
+        url: "reservation",
+        method: "POST",
+        body: reservation,
+      }),
+      invalidatesTags: ["Reservation"],
     }),
   }),
 });

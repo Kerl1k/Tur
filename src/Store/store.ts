@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { airplaneApi, tourApi } from "../services/TourService";
+import { airplaneApi, reservationApi, tourApi } from "../services/TourService";
 
 const rootReducer = combineReducers({
   [tourApi.reducerPath]: tourApi.reducer,
   [airplaneApi.reducerPath]: airplaneApi.reducer,
+  [reservationApi.reducerPath]: reservationApi.reducer,
 });
 
 export const setupStore = () => {
@@ -13,6 +14,7 @@ export const setupStore = () => {
       getDefaultMiddleware().concat([
         tourApi.middleware,
         airplaneApi.middleware,
+        reservationApi.middleware,
       ]),
   });
 };

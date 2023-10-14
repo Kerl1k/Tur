@@ -1,0 +1,17 @@
+.textBlockReservation{
+    font-size: 15px;
+    margin: 10px;
+}
+
+.formReservation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputReservation{
+    border: 1px solid aqua;
+    width: 400px;
+    height: 50px;
+    margin: 15px;
+}

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "./Main.css";
 import { tourApi } from "../../../services/TourService";
+import MyButton from "../../../components/UPI/button/MyButton";
+import MyModal from "../../../components/UPI/Modal/MyModal";
+import ModalReservation from "../../../components/ModalReservation/ModalReservation";
 
 const Main = () => {
   const [serch, setSerch] = useState("");
+  const [modal, setModal] = useState(true);
   const { data: tours } = tourApi.useFetchAlltourSerchQuery(serch);
   return (
     <div>
@@ -27,7 +31,15 @@ const Main = () => {
               <div className="aboutBlock">{t.about}</div>
             </div>
             <div className="priceBlock">{t.price}р</div>
+            <div className="lineBlock" />
+            <div className="addBlock">
+              <div className="textPrice">Цена за одну ночь</div>
+              <MyButton onClick={() => setModal(true)}>Забронировать</MyButton>
+            </div>
           </div>
+          <MyModal visible={modal} setVisible={setModal}>
+            <ModalReservation tour={t} />
+          </MyModal>
         </div>
       ))}
     </div>
