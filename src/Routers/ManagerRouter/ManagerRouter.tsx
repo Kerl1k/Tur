@@ -5,7 +5,7 @@ import UserManager from "../../Pages/Manager/User/UserManager";
 import MainManager from "../../Pages/Manager/Main/MainManager";
 import AirplaneManager from "../../Pages/Manager/Airplane/AirplaneManager";
 import MainClient from "../../Pages/Client/Main/MainClient";
-import AppealClient from "../../Pages/Client/Appeal/AppealClient";
+import Applications from "../../Pages/Client/Applications/Applications";
 import ClientLayout from "../../Layout/ClientLayout/ClientLayout";
 import { isLogginApi } from "../../services/TourService";
 import Authorization from "../../Pages/Manager/Аuthorization/Authorization";
@@ -44,13 +44,10 @@ const routerClient = createBrowserRouter([
     children: [
       { index: true, element: <MainClient /> },
       {
-        path: "user",
-        element: <AppealClient />,
-      },
-      {
         path: "manager",
         element: <Authorization />,
       },
+      { path: "applications", element: <Applications /> },
     ],
   },
 ]);

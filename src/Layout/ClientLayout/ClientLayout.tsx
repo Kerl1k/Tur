@@ -14,6 +14,9 @@ const ClientLayout = () => {
         >
           На главную
         </NavLink>
+        <NavLink className="header_button" to="/applications">
+          заявки
+        </NavLink>
         <NavLink className="header_button" to="/manager">
           менеджер
         </NavLink>

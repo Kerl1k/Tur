@@ -107,7 +107,7 @@
       "id": 1697579760639,
       "days": "12",
       "persone": "2",
-      "phone": "79806267175",
+      "phone": "79806005544",
       "status": "Working",
       "user": "Уваров Керил Керилович",
       "manager": 123123123123,
@@ -143,12 +143,7 @@
     }
   ],
   "isLoggin": {
-    "isLoggin": true,
-    "manager": {
-      "id": 123123123123,
-      "login": "Oleg",
-      "password": "Oleg"
-    }
+    "isLoggin": false
   },
   "loginManager": [
     {
