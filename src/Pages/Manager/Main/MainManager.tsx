@@ -2,8 +2,13 @@ import React from "react";
 import MyButton from "../../../components/UPI/button/MyButton";
 import "./Main.css";
 import { Link } from "react-router-dom";
+import { isLogginApi } from "../../../services/TourService";
 
 const Main = () => {
+  const [Isloggin, {}] = isLogginApi.useChangeIsLogginMutation();
+  function Exit() {
+    Isloggin({ isLoggin: false });
+  }
   return (
     <div className="main">
       <MyButton>
@@ -23,7 +28,7 @@ const Main = () => {
       </MyButton>
       <MyButton>Настройки</MyButton>
       <MyButton>
-        <Link className="link" to="/client">
+        <Link onClick={Exit} className="link" to="/">
           Выйти
         </Link>
       </MyButton>

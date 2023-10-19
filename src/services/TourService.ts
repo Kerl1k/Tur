@@ -2,6 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { ITours } from "../TypeScripts/ITours";
 import { IAirplane } from "../TypeScripts/IAirplane";
 import { IReservation } from "../TypeScripts/IReservation";
+import { ILoggin } from "../TypeScripts/ILoggin";
+import { ILoginManager } from "../TypeScripts/ILoginManager";
 
 export const tourApi = createApi({
   reducerPath: "tourAPI",
@@ -12,16 +14,18 @@ export const tourApi = createApi({
       query: () => ({
         url: "tour",
       }),
-      providesTags: (result) => ["Tour"],
+      providesTags: ["Tour"],
     }),
-    fetchAlltourSerch: build.query<ITours[], string>({
+    fetchAlltourSerch: build.query<ITours[], any>({
       query: (search = "") => ({
         url: "tour",
         params: {
-          hotel_like: search,
+          hotel_like: search.search,
+          country_like: search.country,
+          city_like: search.city,
         },
       }),
-      providesTags: (result) => ["Tour"],
+      providesTags: ["Tour"],
     }),
     addTour: build.mutation<ITours, ITours>({
       query: (tour) => ({
@@ -59,7 +63,7 @@ export const airplaneApi = createApi({
       query: () => ({
         url: "airplane",
       }),
-      providesTags: (result) => ["Airplane"],
+      providesTags: ["Airplane"],
     }),
     addAirplane: build.mutation<IAirplane, IAirplane>({
       query: (airplane) => ({
@@ -85,11 +89,18 @@ export const reservationApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
   tagTypes: ["Reservation"],
   endpoints: (build) => ({
-    fetchAllReservation: build.query<IReservation[], string>({
+    fetchAllReservation: build.query<IReservation[], number>({
       query: () => ({
         url: "reservation",
       }),
-      providesTags: (result) => ["Reservation"],
+      providesTags: ["Reservation"],
+    }),
+    fetchAllReservationParams: build.query<IReservation[], any>({
+      query: (params) => ({
+        url: "reservation",
+        params,
+      }),
+      providesTags: ["Reservation"],
     }),
     addReservation: build.mutation<IReservation, IReservation>({
       query: (reservation) => ({
@@ -98,6 +109,76 @@ export const reservationApi = createApi({
         body: reservation,
       }),
       invalidatesTags: ["Reservation"],
+    }),
+    changeReservation: build.mutation<IReservation, IReservation>({
+      query: (reservation) => ({
+        url: `reservation/${reservation.id}`,
+        method: "PUT",
+        body: reservation,
+      }),
+      invalidatesTags: ["Reservation"],
+    }),
+  }),
+});
+
+export const isLogginApi = createApi({
+  reducerPath: "isLoggin",
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
+  tagTypes: ["isLoggin"],
+  endpoints: (build) => ({
+    fetchIsLoggin: build.query<ILoggin, any>({
+      query: () => ({
+        url: "isLoggin",
+      }),
+      providesTags: ["isLoggin"],
+    }),
+    changeIsLoggin: build.mutation<ILoggin, ILoggin>({
+      query: (isLoggin) => ({
+        url: "isLoggin",
+        method: "PUT",
+        body: isLoggin,
+      }),
+      invalidatesTags: ["isLoggin"],
+    }),
+  }),
+});
+
+export const loginManagerApi = createApi({
+  reducerPath: "LoginManager",
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
+  tagTypes: ["LoginManager"],
+  endpoints: (build) => ({
+    fetchLoginManager: build.query<ILoginManager[], any>({
+      query: (login) => ({
+        url: `loginManager`,
+        params: {
+          name: login.name,
+          password: login.password,
+        },
+      }),
+      providesTags: ["LoginManager"],
+    }),
+  }),
+});
+
+export const filterApi = createApi({
+  reducerPath: "filter",
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
+  tagTypes: ["filter"],
+  endpoints: (build) => ({
+    fetchFilter: build.query<any, any>({
+      query: () => ({
+        url: `filter`,
+      }),
+      providesTags: ["filter"],
+    }),
+    addFilter: build.mutation<any, any>({
+      query: (filter) => ({
+        url: "filter",
+        method: "POST",
+        body: filter,
+      }),
+      invalidatesTags: ["filter"],
     }),
   }),
 });

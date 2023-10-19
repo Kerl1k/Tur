@@ -1,38 +1,72 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ManagerLayout from "../../Layout/ManagerLayout/ManagerLayout";
-import Tour from "../../Pages/Manager/Tour/Tour";
-import User from "../../Pages/Manager/User/User";
-import QWE from "../../Pages/Client/Main/Main";
-import Main from "../../Pages/Manager/Main/Main";
-import Airplane from "../../Pages/Manager/Airplane/Airplane";
-const router = createBrowserRouter([
+import TourManager from "../../Pages/Manager/Tour/TourManager";
+import UserManager from "../../Pages/Manager/User/UserManager";
+import MainManager from "../../Pages/Manager/Main/MainManager";
+import AirplaneManager from "../../Pages/Manager/Airplane/AirplaneManager";
+import MainClient from "../../Pages/Client/Main/MainClient";
+import AppealClient from "../../Pages/Client/Appeal/AppealClient";
+import ClientLayout from "../../Layout/ClientLayout/ClientLayout";
+import { isLogginApi } from "../../services/TourService";
+import Authorization from "../../Pages/Manager/Аuthorization/Authorization";
+const routerManager = createBrowserRouter([
   {
     path: "/",
     element: <ManagerLayout />,
     errorElement: <h3>SOSI</h3>,
     children: [
-      { index: true, element: <Main /> },
+      { index: true, element: <MainManager /> },
       {
         path: "user",
-        element: <User />,
+        element: <UserManager />,
       },
       {
         path: "tour",
-        element: <Tour />,
+        element: <TourManager />,
       },
       {
         path: "airplane",
-        element: <Airplane />,
+        element: <AirplaneManager />,
       },
       {
         path: "client",
-        element: <QWE />,
+        element: <MainClient />,
+      },
+    ],
+  },
+]);
+
+const routerClient = createBrowserRouter([
+  {
+    path: "/",
+    element: <ClientLayout />,
+    errorElement: <h3>SOSI</h3>,
+    children: [
+      { index: true, element: <MainClient /> },
+      {
+        path: "user",
+        element: <AppealClient />,
+      },
+      {
+        path: "manager",
+        element: <Authorization />,
       },
     ],
   },
 ]);
 const AppRouter = () => {
-  return <RouterProvider router={router} />;
+  const { data: isLoggin } = isLogginApi.useFetchIsLogginQuery("");
+  return (
+    <div>
+      {isLoggin?.isLoggin === false ? (
+        <RouterProvider router={routerClient} />
+      ) : (
+        <RouterProvider router={routerManager} />
+      )}
+    </div>
+  );
 };
 
 export default AppRouter;
+
+//<RouterProvider router={routerManager} />
