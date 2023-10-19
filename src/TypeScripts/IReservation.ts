@@ -1,3 +1,4 @@
+import { ILoginManager } from "./ILoginManager";
 import { ITours } from "./ITours";
 
 export interface IReservation {
@@ -7,4 +8,6 @@ export interface IReservation {
   persone: number;
   days: number;
   tour: ITours;
+  status: string;
+  manager?: number;
 }

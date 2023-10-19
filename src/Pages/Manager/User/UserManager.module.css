@@ -1,0 +1,20 @@
+.title{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.reservation{
+    border: 2px solid aqua;
+    width: 300px;
+    height: 200px;
+    margin: 15px;
+    
+
+}
+
+.reservationBlock{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}

@@ -9,6 +9,36 @@
       "price": 5000,
       "about": "Отель у реки и рядом с природой",
       "img": "https://xn-----7kcbkajecynpbmo5afibe9bya4eyh.xn--p1ai/wp-content/uploads/sites/8/2020/10/see_1.jpg"
+    },
+    {
+      "id": 1697655820093,
+      "airplane": "Победа",
+      "hotel": "Чахипурик",
+      "country": "Казахстан",
+      "city": "Астана",
+      "price": "10000",
+      "about": "Еда супер",
+      "img": ""
+    },
+    {
+      "id": 1697655902598,
+      "airplane": "эС7",
+      "hotel": "Картошка",
+      "country": "Белорусь",
+      "city": "Минск",
+      "price": "500000",
+      "about": "совсем не фри",
+      "img": ""
+    },
+    {
+      "id": 1697656896149,
+      "airplane": "Победа",
+      "hotel": "3везды",
+      "country": "Россия",
+      "city": "Москва",
+      "price": "5000",
+      "about": "5 звезд отвечаю",
+      "img": ""
     }
   ],
   "airplane": [
@@ -50,7 +80,102 @@
         "price": 5000,
         "about": "Отель у реки и рядом с природой",
         "img": "https://xn-----7kcbkajecynpbmo5afibe9bya4eyh.xn--p1ai/wp-content/uploads/sites/8/2020/10/see_1.jpg"
+      },
+      "status": "Awaiting payment",
+      "manager": 123123123123
+    },
+    {
+      "id": 1697573742392,
+      "phone": 7980256216,
+      "user": "QWE ",
+      "persone": 2,
+      "days": 3,
+      "tour": {
+        "id": 1697041853176,
+        "airplane": "S77",
+        "hotel": "Завидово",
+        "country": "Россия",
+        "city": "Конаково",
+        "price": 5000,
+        "about": "Отель у реки и рядом с природой",
+        "img": "https://xn-----7kcbkajecynpbmo5afibe9bya4eyh.xn--p1ai/wp-content/uploads/sites/8/2020/10/see_1.jpg"
+      },
+      "status": "Awaiting confirmation",
+      "manager": 123123123123
+    },
+    {
+      "id": 1697579760639,
+      "days": "12",
+      "persone": "2",
+      "phone": "79806267175",
+      "status": "Working",
+      "user": "Уваров Керил Керилович",
+      "manager": 123123123123,
+      "tour": {
+        "id": 1697041853176,
+        "airplane": "S77",
+        "hotel": "Завидово",
+        "country": "Россия",
+        "city": "Конаково",
+        "price": 5000,
+        "about": "Отель у реки и рядом с природой",
+        "img": "https://xn-----7kcbkajecynpbmo5afibe9bya4eyh.xn--p1ai/wp-content/uploads/sites/8/2020/10/see_1.jpg"
+      }
+    },
+    {
+      "id": 1697711840031,
+      "days": "11231",
+      "persone": "5",
+      "phone": "79806265166",
+      "status": "Working",
+      "user": "123",
+      "manager": 123123123123,
+      "tour": {
+        "id": 1697711761826,
+        "airplane": "",
+        "hotel": "",
+        "country": "Россия",
+        "city": "Пенза",
+        "price": 0,
+        "about": "",
+        "img": ""
       }
     }
-  ]
+  ],
+  "isLoggin": {
+    "isLoggin": true,
+    "manager": {
+      "id": 123123123123,
+      "login": "Oleg",
+      "password": "Oleg"
+    }
+  },
+  "loginManager": [
+    {
+      "id": 123123123123,
+      "login": "Oleg",
+      "password": "Oleg"
+    },
+    {
+      "id": 21123123,
+      "login": "admin",
+      "password": "admin"
+    }
+  ],
+  "filter": {
+    "123123": {
+      "123123": 1
+    },
+    "Россия": {
+      "Конаково": 1,
+      "Москва": 1,
+      "Пенза": 1
+    },
+    "Казахстан": {
+      "Астана": 1
+    },
+    "Белорусь": {
+      "Минск": 1
+    }
+  }
 }

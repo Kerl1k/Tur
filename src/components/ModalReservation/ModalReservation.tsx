@@ -1,74 +1,56 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./ModalReservation.css";
 import MyButton from "../UPI/button/MyButton";
 import { reservationApi } from "../../services/TourService";
 import { ITours } from "../../TypeScripts/ITours";
+import * as Yup from "yup";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 
 const ModalReservation = ({ tour }: { tour: ITours }) => {
   const [addReservation, {}] = reservationApi.useAddReservationMutation();
-  const [reservation, setReservation] = useState({
+  const initialValues = {
     id: Date.now(),
     phone: +7,
     user: "",
     persone: 1,
     days: 1,
     tour: tour,
-  });
-  function buttonAddReservation(e: any) {
-    e.preventDefault();
-    addReservation(reservation);
+    status: "waiting",
+  };
+  function onSubmit(values: any) {
+    addReservation(values);
   }
+  const validationSchema = Yup.object({
+    phone: Yup.string().required("Логин не введен"),
+    user: Yup.string().required("Пароль не введен"),
+    persone: Yup.string().required("Пароль не введен"),
+    days: Yup.string().required("Пароль не введен"),
+  });
 
   return (
     <div>
-      <h1 style={{ display: "flex", justifyContent: "center" }}>
-        Бронирование отеля
-      </h1>
-      <div className="textBlockReservation">
-        Для бронирования отеля вам необходимо оставить заявку и наш менеджер
-        свяжется с вами
-      </div>
-      <form className="formReservation">
-        <input
-          onChange={(e) =>
-            setReservation({ ...reservation, phone: Number(e.target.value) })
-          }
-          value={reservation.phone}
-          placeholder="Номер телефона"
-          type="number"
-          className="inputReservation"
-        />
-        <input
-          value={reservation.user}
-          onChange={(e) =>
-            setReservation({ ...reservation, user: e.target.value })
-          }
-          placeholder="ФИО"
-          type="text"
-          className="inputReservation"
-        />
-        <input
-          onChange={(e) =>
-            setReservation({ ...reservation, persone: Number(e.target.value) })
-          }
-          value={reservation.persone}
-          placeholder="Колличество человек"
-          type="number"
-          className="inputReservation"
-        />
-        <input
-          onChange={(e) =>
-            setReservation({ ...reservation, days: Number(e.target.value) })
-          }
-          value={reservation.days}
-          placeholder="Колличество дней"
-          type="number"
-          className="inputReservation"
-        />
-        <MyButton onClick={(e: any) => buttonAddReservation(e)}>
-          Оставить заявку
-        </MyButton>
-      </form>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
+        {() => (
+          <Form className="formReservation">
+            <h1 style={{ display: "flex", justifyContent: "center" }}>
+              Бронирование отеля
+            </h1>
+            <div className="textBlockReservation">
+              Для бронирования отеля вам необходимо оставить заявку и наш
+              менеджер свяжется с вами
+            </div>
+            <Field name="phone" placeholder="phone" />
+            <Field name="user" placeholder="user" />
+            <Field name="persone" placeholder="persone" />
+            <Field name="days" placeholder="days" />
+            <MyButton type="submit">Оставить заявку</MyButton>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
